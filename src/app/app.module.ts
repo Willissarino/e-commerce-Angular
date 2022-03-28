@@ -6,6 +6,7 @@ import { TopNavComponent } from './nav/top-nav/top-nav.component';
 import { FooterComponent } from './nav/footer/footer.component';
 import { UserHeroSectionComponent } from './user/user-hero-section/user-hero-section.component';
 import { UserFeaturedSectionComponent } from './user/user-featured-section/user-featured-section.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { UserFeaturedSectionComponent } from './user/user-featured-section/user-
     TopNavComponent,
     FooterComponent,
     UserHeroSectionComponent,
-    UserFeaturedSectionComponent
+    UserFeaturedSectionComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule
