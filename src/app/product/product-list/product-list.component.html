@@ -1,4 +1,4 @@
-<!-- Category Page -->
+<!-- All Product Page -->
     <div class="bg-white">
         <div>
           <!-- Mobile filter dialog  Off-canvas menu for mobile, show/hide based on off-canvas menu state.-->
@@ -193,11 +193,10 @@
                 <div class="text-sm breadcrumbs">
                     <ul>
                         <li><a routerLink="/">Home</a></li> 
-                        <li><a routerLink="/product">All product</a></li> 
-                        <li><a>Category category name</a></li> 
+                        <li><a>All Product</a></li> 
                     </ul>
                 </div>
-              <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">All category name</h1>
+              <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">All Product</h1>
               <p class="mt-4 text-base text-gray-500">Checkout out the latest release of products, new and improved with four openings!</p>
             </div>
       
@@ -285,7 +284,7 @@
                         </div>
                       </fieldset>
                     </div>
-                    <!-- Sizes Filter Section --> 
+                    <!-- Sizes Filter Section -->
                     <div class="pt-10">
                       <fieldset>
                         <legend class="block text-sm font-medium text-gray-900">Sizes</legend>
@@ -331,18 +330,20 @@
                 <div class="bg-white">
                     <div class="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8">
                       <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
-                        <!-- Product Loop --> 
-                        <!-- @foreach ($products as $prod) -->
+                        
+                        <!-- Product Loop -->
+                        <!-- @foreach ($product as $prod) -->
                             <a href="#" class="group text-sm">
                                 <div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
                                     <img src="#" alt="product-img">
                                 </div>
-                                <h3 class="mt-4 font-medium text-gray-900">Product Name</h3>
-                                <p class="text-gray-500 italic">Product Small Description</p>
-                                <p class="mt-2 font-medium text-gray-900">MYR Product Price</p>
+                                <h3 class="mt-4 font-medium text-gray-900">Product name</h3>
+                                <p class="text-gray-500 italic">Product small description</p>
+                                <p class="mt-2 font-medium text-gray-900">MYR Product price</p>
                             </a>
                         <!-- @endforeach -->
                         
+                  
                       </div>
                     </div>
                   </div>

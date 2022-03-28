@@ -12,6 +12,7 @@ import { UserHomepageComponent } from './user/user-homepage/user-homepage.compon
 import { UserCategoriesSectionComponent } from './user/user-categories-section/user-categories-section.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductCategoryComponent } from './product/product-category/product-cat
     UserHomepageComponent,
     UserCategoriesSectionComponent,
     UserRegisterComponent,
-    ProductCategoryComponent
+    ProductCategoryComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
