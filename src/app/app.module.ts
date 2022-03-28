@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserHomepageComponent } from './user/user-homepage/user-homepage.component';
 import { UserCategoriesSectionComponent } from './user/user-categories-section/user-categories-section.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { ProductCategoryComponent } from './product/product-category/product-category.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
     UserLoginComponent,
     UserHomepageComponent,
     UserCategoriesSectionComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    ProductCategoryComponent
   ],
   imports: [
     BrowserModule,

@@ -6,11 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserHomepageComponent } from './user/user-homepage/user-homepage.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { ProductCategoryComponent } from './product/product-category/product-category.component';
 
 const routes: Routes = [
+  {path: '', component:UserHomepageComponent},
   {path: 'register', component:UserRegisterComponent},
   {path: 'login', component:UserLoginComponent},
-  {path: '', component:UserHomepageComponent},
+  {path: 'category', component:ProductCategoryComponent},
 ]
 
 
