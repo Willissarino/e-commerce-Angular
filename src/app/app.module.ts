@@ -7,6 +7,7 @@ import { FooterComponent } from './nav/footer/footer.component';
 import { UserHeroSectionComponent } from './user/user-hero-section/user-hero-section.component';
 import { UserFeaturedSectionComponent } from './user/user-featured-section/user-featured-section.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     UserLoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
