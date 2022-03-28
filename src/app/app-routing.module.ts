@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 //Import your component/pages
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserHomepageComponent } from './user/user-homepage/user-homepage.component';
 
 const routes: Routes = [
   {path: 'login', component:UserLoginComponent},
+  {path: '', component:UserHomepageComponent},
 ]
 
 

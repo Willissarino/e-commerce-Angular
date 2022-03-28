@@ -8,6 +8,7 @@ import { UserHeroSectionComponent } from './user/user-hero-section/user-hero-sec
 import { UserFeaturedSectionComponent } from './user/user-featured-section/user-featured-section.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserHomepageComponent } from './user/user-homepage/user-homepage.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
     FooterComponent,
     UserHeroSectionComponent,
     UserFeaturedSectionComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    UserHomepageComponent
   ],
   imports: [
     BrowserModule,
