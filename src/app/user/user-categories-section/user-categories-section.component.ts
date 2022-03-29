@@ -1,4 +1,6 @@
+import { UserCategory } from './user-category';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-user-categories-section',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCategoriesSectionComponent implements OnInit {
 
-  constructor() { }
+  public products = <UserCategory[]>{};
+
+  constructor(private service:ProductService) { }
 
   ngOnInit(): void {
+    this.getList();
+  }
+
+  getList()
+  {
+    this.service.userCategory()
+      .subscribe(response => this.products = response);
   }
 
 }
