@@ -1,6 +1,7 @@
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductCategory } from './product-category';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-category',
@@ -11,15 +12,20 @@ export class ProductCategoryComponent implements OnInit {
 
   public products = <ProductCategory[]>{};
 
-  constructor(private service:ProductService) { }
+  constructor(
+    private service:ProductService,
+    private route: ActivatedRoute  
+  ) {}
 
   ngOnInit(): void {
-    this.getList();
+    this.getProductCategoryList();
   }
 
-  getList()
-  {
-    this.service.categoryList()
+  getProductCategoryList() : void {
+    // get() function return string | string
+    const slug = this.route.snapshot.paramMap.get('slug') ?? "";
+    
+    this.service.viewCategoryList(slug)
       .subscribe(response => this.products = response);
   }
 

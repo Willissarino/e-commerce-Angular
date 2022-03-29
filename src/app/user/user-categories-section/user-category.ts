@@ -3,4 +3,5 @@ export interface UserCategory {
     description : string,
     selling_price : number,
     image : string,
+    slug : string,
 }

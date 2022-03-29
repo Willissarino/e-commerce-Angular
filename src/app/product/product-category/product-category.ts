@@ -2,5 +2,8 @@ export interface ProductCategory {
     id : number,
     name : string,
     description : string,
-    selling_price : number
+    small_description : string,
+    image : string,
+    slug : string,
+    selling_price : number,
 }

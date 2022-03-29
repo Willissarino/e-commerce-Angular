@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
   private userCategoryAPI = 'http://127.0.0.1:8000/api/category';
   private userFeaturedProductAPI = 'http://127.0.0.1:8000/api/featured-product';
+  private userViewCategoryAPI = 'http://127.0.0.1:8000/api/category';
 
 
   constructor(private http:HttpClient) { }
@@ -23,12 +24,12 @@ export class ProductService {
 
   userFeatured() : Observable<UserFeatured[]>
   {
-    return this.http.get<UserCategory[]>(this.userFeaturedProductAPI);
+    return this.http.get<UserFeatured[]>(this.userFeaturedProductAPI);
   }
 
-  categoryList() : Observable<ProductCategory[]>
+  viewCategoryList(slug : String) : Observable<ProductCategory[]>
   {
-    return this.http.get<ProductCategory[]>(this.userFeaturedProductAPI);
+    return this.http.get<ProductCategory[]>(`${this.userViewCategoryAPI}/${slug}`);
   }
 
   

@@ -17,6 +17,7 @@ const routes: Routes = [
 
   // Product
   {path: 'category', component:ProductCategoryComponent},
+  {path: 'category/:slug' , component:ProductCategoryComponent},
   {path: 'product', component:ProductListComponent},
 
 ]
