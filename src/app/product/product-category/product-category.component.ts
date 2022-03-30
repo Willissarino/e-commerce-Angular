@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductCategoryComponent implements OnInit {
 
   public products = <ProductCategory[]>{};
+  categoryTitle = this.route.snapshot.paramMap.get('slug');
 
   constructor(
     private service:ProductService,
@@ -24,7 +25,6 @@ export class ProductCategoryComponent implements OnInit {
   getProductCategoryList() : void {
     // get() function return string | string
     const slug = this.route.snapshot.paramMap.get('slug') ?? "";
-    
     this.service.viewCategoryList(slug)
       .subscribe(response => this.products = response);
   }

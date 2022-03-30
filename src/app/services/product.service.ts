@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
   private userCategoryAPI = 'http://127.0.0.1:8000/api/category';
   private userFeaturedProductAPI = 'http://127.0.0.1:8000/api/featured-product';
-  private userViewCategoryAPI = 'http://127.0.0.1:8000/api/category';
+  private userViewCategoryAPI = 'http://127.0.0.1:8000/api/category'; //delete this later
 
 
   constructor(private http:HttpClient) { }
