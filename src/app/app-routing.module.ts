@@ -1,3 +1,4 @@
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Import RouterModule & Routes
@@ -18,6 +19,7 @@ const routes: Routes = [
   // Product
   {path: 'category', component:ProductCategoryComponent},
   {path: 'category/:slug' , component:ProductCategoryComponent},
+  {path: 'category/:cate_slug/:prod_slug' , component:ProductDetailComponent},
   {path: 'product', component:ProductListComponent},
 
 ]

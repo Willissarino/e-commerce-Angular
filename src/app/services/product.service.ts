@@ -5,6 +5,7 @@ import { ProductCategory } from './../product/product-category/product-category'
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ProductDetails } from '../product/product-detail/product-detail';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,12 @@ export class ProductService {
   viewProductList() : Observable<ProductList[]>
   {
     return this.http.get<ProductList[]>(this.userProductListAPI);
+  }
+
+  // Return product details
+  viewProductDetails(cate_slug : String, prod_slug : String) : Observable<ProductDetails[]>
+  {
+    return this.http.get<ProductDetails[]>(`${this.userProductListAPI}/${cate_slug}/${prod_slug}`);
   }
 
   

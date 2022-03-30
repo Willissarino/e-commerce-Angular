@@ -13,7 +13,8 @@ import { UserCategoriesSectionComponent } from './user/user-categories-section/u
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component'; 
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserCategoriesSectionComponent,
     UserRegisterComponent,
     ProductCategoryComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

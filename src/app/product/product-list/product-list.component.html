@@ -334,7 +334,7 @@
                         <!-- Product Loop -->
                         <!-- @foreach ($product as $prod) -->
                         <div *ngFor="let product of products">
-                          <a href="#" class="group text-sm">
+                          <a routerLink="{{product.slug}}" class="group text-sm">
                             <div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
                                 <img src="assets/product/{{product.image}}" alt="product-img">
                             </div>

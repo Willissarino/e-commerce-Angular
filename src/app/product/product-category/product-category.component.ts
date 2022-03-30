@@ -18,6 +18,8 @@ export class ProductCategoryComponent implements OnInit {
     private route: ActivatedRoute  
   ) {}
 
+  data: any = [];
+
   ngOnInit(): void {
     this.getProductCategoryList();
   }
@@ -26,7 +28,7 @@ export class ProductCategoryComponent implements OnInit {
     // get() function return string | string
     const slug = this.route.snapshot.paramMap.get('slug') ?? "";
     this.service.viewCategoryList(slug)
-      .subscribe(response => this.products = response);
+      .subscribe(response => this.data = response);
   }
 
 }
