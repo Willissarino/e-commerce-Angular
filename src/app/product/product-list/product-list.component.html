@@ -333,17 +333,17 @@
                         
                         <!-- Product Loop -->
                         <!-- @foreach ($product as $prod) -->
-                            <a href="#" class="group text-sm">
-                                <div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
-                                    <img src="#" alt="product-img">
-                                </div>
-                                <h3 class="mt-4 font-medium text-gray-900">Product name</h3>
-                                <p class="text-gray-500 italic">Product small description</p>
-                                <p class="mt-2 font-medium text-gray-900">MYR Product price</p>
-                            </a>
+                        <div *ngFor="let product of products">
+                          <a href="#" class="group text-sm">
+                            <div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+                                <img src="assets/product/{{product.image}}" alt="product-img">
+                            </div>
+                            <h3 class="mt-4 font-medium text-gray-900">{{product.name}}</h3>
+                            <p class="text-gray-500 italic">{{product.small_description}}</p>
+                            <p class="mt-2 font-medium text-gray-900">MYR {{product.selling_price}}</p>
+                          </a>
+                        </div>
                         <!-- @endforeach -->
-                        
-                  
                       </div>
                     </div>
                   </div>
