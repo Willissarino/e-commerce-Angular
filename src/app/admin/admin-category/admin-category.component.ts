@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCategoryComponent implements OnInit {
 
-  constructor() { }
+  product: any = [];
+
+  constructor(
+    private service:AdminService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.getProductCategoryList();
   }
 
+  getProductCategoryList() : void {
+    this.service.getAllCategory()
+    .subscribe(response => this.product = response);
+  }
 }

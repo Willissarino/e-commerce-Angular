@@ -1,11 +1,12 @@
-import { ProductList } from './../product/product-list/product-list';
-import { UserFeatured } from './../user/user-featured-section/user-featured';
-import { UserCategory } from './../user/user-categories-section/user-category';
-import { ProductCategory } from './../product/product-category/product-category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductDetails } from '../product/product-detail/product-detail';
+import { ProductList } from './../product/product-list/product-list';
+import { UserFeatured } from './../user/user-featured-section/user-featured';
+import { UserCategory } from './../user/user-categories-section/user-category';
+import { ProductCategory } from './../product/product-category/product-category';
+
 
 @Injectable({
   providedIn: 'root'

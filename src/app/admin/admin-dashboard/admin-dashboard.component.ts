@@ -8,13 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  title = this.route.snapshot.paramMap.get('slug');
-
   constructor(
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+
   }
 
 }
