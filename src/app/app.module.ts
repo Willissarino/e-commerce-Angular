@@ -18,7 +18,8 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminDropdownComponent } from './admin/admin-dropdown/admin-dropdown.component';
-import { AdminCategoryComponent } from './admin/admin-category/admin-category.component'; 
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
     AdminLoginComponent,
     AdminDashboardComponent,
     AdminDropdownComponent,
-    AdminCategoryComponent
+    AdminCategoryComponent,
+    AdminProductComponent,
   ],
   imports: [
     BrowserModule,

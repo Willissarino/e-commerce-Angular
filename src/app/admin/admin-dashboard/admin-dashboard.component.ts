@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  title = this.route.snapshot.paramMap.get('slug');
+
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
   }
