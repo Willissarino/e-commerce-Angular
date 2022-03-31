@@ -333,8 +333,8 @@
                         
                         <!-- Product Loop -->
                         <!-- @foreach ($product as $prod) -->
-                        <div *ngFor="let product of products">
-                          <a routerLink="{{product.slug}}" class="group text-sm">
+                        <ng-container *ngFor="let product of products">
+                          <a routerLink="/category/{{product.category.slug}}/{{product.slug}}" class="group text-sm">
                             <div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
                                 <img src="assets/product/{{product.image}}" alt="product-img">
                             </div>
@@ -342,7 +342,7 @@
                             <p class="text-gray-500 italic">{{product.small_description}}</p>
                             <p class="mt-2 font-medium text-gray-900">MYR {{product.selling_price}}</p>
                           </a>
-                        </div>
+                        </ng-container>
                         <!-- @endforeach -->
                       </div>
                     </div>
