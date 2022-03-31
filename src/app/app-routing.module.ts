@@ -1,3 +1,4 @@
+import { AdminCategoryAddComponent } from './admin/admin-category-add/admin-category-add.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Import RouterModule & Routes
@@ -38,6 +39,7 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     children: [
       { path: 'category', component: AdminCategoryComponent },
+      { path: 'category-add', component: AdminCategoryAddComponent },
       { path: 'product', component: AdminProductComponent },
     ]
   },

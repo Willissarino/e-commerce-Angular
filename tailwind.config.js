@@ -3,6 +3,9 @@ module.exports = {
   "./src/**/*.{html,ts}",
 ],
   theme: {
+    fontFamily: {
+      display: ["Nunito", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [

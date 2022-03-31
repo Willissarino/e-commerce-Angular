@@ -20,6 +20,7 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { AdminDropdownComponent } from './admin/admin-dropdown/admin-dropdown.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminCategoryAddComponent } from './admin/admin-category-add/admin-category-add.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
     AdminDropdownComponent,
     AdminCategoryComponent,
     AdminProductComponent,
+    AdminCategoryAddComponent,
   ],
   imports: [
     BrowserModule,
