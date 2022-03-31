@@ -21,6 +21,7 @@ import { AdminDropdownComponent } from './admin/admin-dropdown/admin-dropdown.co
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminCategoryAddComponent } from './admin/admin-category-add/admin-category-add.component';
+import { AdminProductAddComponent } from './admin/admin-product-add/admin-product-add.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AdminCategoryAddComponent } from './admin/admin-category-add/admin-cate
     AdminCategoryComponent,
     AdminProductComponent,
     AdminCategoryAddComponent,
+    AdminProductAddComponent,
   ],
   imports: [
     BrowserModule,
