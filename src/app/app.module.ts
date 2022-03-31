@@ -16,7 +16,8 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component'; 
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminDropdownComponent } from './admin/admin-dropdown/admin-dropdown.component'; 
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
     ProductListComponent,
     ProductDetailComponent,
     AdminLoginComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminDropdownComponent
   ],
   imports: [
     BrowserModule,
