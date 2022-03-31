@@ -1,5 +1,3 @@
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
-import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Import RouterModule & Routes
@@ -8,9 +6,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserHomepageComponent } from './user/user-homepage/user-homepage.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+
+
 
 const routes: Routes = [
   // User 
@@ -26,7 +31,13 @@ const routes: Routes = [
 
   // Admin
   {path: 'admin', component:AdminLoginComponent},
-  {path: 'admin/dashboard', component:AdminDashboardComponent},
+  {
+    path: 'admin/dashboard', 
+    component: AdminDashboardComponent,
+    children: [
+      { path: 'category', component: AdminCategoryComponent },
+    ]
+  },
 
 
 
