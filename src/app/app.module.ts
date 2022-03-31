@@ -14,7 +14,9 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductDetailComponent } from './product/product-detail/product-detail.component'; 
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component'; 
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
     UserRegisterComponent,
     ProductCategoryComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

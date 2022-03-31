@@ -8,13 +8,15 @@ import { UserFeatured } from './user-featured';
   styleUrls: ['./user-featured-section.component.css']
 })
 export class UserFeaturedSectionComponent implements OnInit {
-  public featured = <UserFeatured[]>{};
+  //public featured = <UserFeatured[]>{};
 
   constructor(private service:ProductService) { }
 
   ngOnInit(): void {
     this.getList();
   }
+
+  featured : any = [];
 
   getList()
   {
