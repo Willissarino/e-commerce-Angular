@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AdminService {
   private adminCategoryAPI = 'http://127.0.0.1:8000/api/admin/category';
+  private adminProductAPI = 'http://127.0.0.1:8000/api/admin/product';
 
   constructor(private http:HttpClient) { }
 
@@ -14,5 +15,11 @@ export class AdminService {
   getAllCategory() : Observable<any>
   {
     return this.http.get<any>(this.adminCategoryAPI);
+  }
+
+  // Get all product
+  getAllProduct() : Observable<any>
+  {
+    return this.http.get<any>(this.adminProductAPI);
   }
 }

@@ -1,1 +1,49 @@
-<p>admin-product works!</p>
+<!-- Button -->
+<div class="bg-white border-b border-gray-200">
+    <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-full px-5 py-2.5 text-center mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+        + Add Product
+    </button>
+  </div>
+  <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product Name</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price (RM)</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ml-5">Action</th>
+                  </tr>
+                </thead>
+                <ng-container *ngFor="let prod of product">
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-no-wrap leading-5 font-medium text-gray-900">
+                        <a routerLink="#" class="text-indigo-600 hover:text-indigo-900">{{prod.id}}</a>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap leading-5 text-gray-500">{{prod.name}}</td>
+                      <td class="px-6 py-4 whitespace-no-wrap leading-5 text-gray-500">{{prod.description}}</td>
+                      <td class="px-6 py-4 whitespace-no-wrap leading-5 text-gray-500">{{prod.selling_price}}</td>
+                      <td class="px-6 py-4 whitespace-no-wrap leading-5 text-gray-500">
+                        <img class="w-28" src="assets/product/{{prod.image}}">
+                      </td>
+                      <td class="pl-6 py-4 whitespace-no-wrap text-left leading-5 font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                      </td>
+                      <td class="py-4 whitespace-no-wrap text-left leading-5 font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                      </td>
+  
+                    </tr>
+                  </tbody>
+                </ng-container>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+    

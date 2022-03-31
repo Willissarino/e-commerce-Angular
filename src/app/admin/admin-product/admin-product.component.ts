@@ -1,3 +1,4 @@
+import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProductComponent implements OnInit {
 
-  constructor() { }
+  product: any = [];
+
+  constructor(
+    private service:AdminService,
+  ) { }
 
   ngOnInit(): void {
+    this.getProductList();
   }
+
+  getProductList() : void {
+    this.service.getAllProduct()
+    .subscribe(response => this.product = response);
+  }
+
 
 }
