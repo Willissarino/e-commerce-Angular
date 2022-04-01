@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-category.component.css']
 })
 export class AdminCategoryComponent implements OnInit {
-
   product: any = [];
 
   constructor(
@@ -20,8 +19,17 @@ export class AdminCategoryComponent implements OnInit {
     this.getProductCategoryList();
   }
 
-  getProductCategoryList() : void {
+  getProductCategoryList() {
     this.service.getAllCategory()
-    .subscribe(response => this.product = response);
+      .subscribe(response => this.product = response);
+  }
+
+  // Delete a category
+  deleteCategory(prod : any) {
+    this.service.deleteCategory(prod.id)
+      .subscribe(response => {
+        alert("Category deleted successfully");
+        this.getProductCategoryList();
+      });
   }
 }
