@@ -28,7 +28,6 @@ export class AdminCategoryComponent implements OnInit {
   deleteCategory(prod : any) {
     this.service.deleteCategory(prod.id)
       .subscribe(response => {
-        alert("Category deleted successfully");
         this.getProductCategoryList();
       });
   }

@@ -16,7 +16,7 @@ export class AdminService {
   {
     return this.http.get<any>(this.adminCategoryAPI);
   }
-
+  
   // Add new category to database
   addCategory(data: any) : Observable<any>
   {
@@ -39,6 +39,12 @@ export class AdminService {
   addProduct(data: any) : Observable<any>
   {
     return this.http.post<any>(this.adminProductAPI + '/add', data);
+  }
+
+  // Delete product from database
+  deleteProduct(id: number)
+  {
+    return this.http.delete(this.adminProductAPI + '/delete/' + id);
   }
 
   
