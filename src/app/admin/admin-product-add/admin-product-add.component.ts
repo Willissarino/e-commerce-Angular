@@ -12,15 +12,21 @@ export class AdminProductAddComponent implements OnInit {
   product: any = [];
 
   addProduct = new FormGroup({
-    name: new FormControl(''),
-    slug: new FormControl(''),
-    description: new FormControl(''),
-    status: new FormControl(''),
-    popular: new FormControl(''),
-    meta_title: new FormControl(''),
-    meta_keywords: new FormControl(''),
-    meta_description: new FormControl(''),
-    image: new FormControl(''),
+    cate_id:            new FormControl(''),
+    name:               new FormControl(''),
+    slug:               new FormControl(''),
+    small_description:  new FormControl(''),
+    description:        new FormControl(''),
+    original_price:     new FormControl(''),
+    selling_price:      new FormControl(''),
+    qty:                new FormControl(''),
+    tax:                new FormControl(''),
+    status:             new FormControl(''),
+    trending:           new FormControl(''),
+    meta_title:         new FormControl(''),
+    meta_description:   new FormControl(''),
+    meta_keywords:      new FormControl(''),
+    image:              new FormControl(''),
   });
 
   constructor(private service:AdminService) { }

@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class AdminService {
   private adminCategoryAPI = 'http://127.0.0.1:8000/api/admin/category';
-  private adminAddCategoryAPI = 'http://127.0.0.1:8000/api/admin/category/add';
   private adminProductAPI = 'http://127.0.0.1:8000/api/admin/product';
 
   constructor(private http:HttpClient) { }
@@ -21,7 +20,7 @@ export class AdminService {
   // Add new category to database
   addCategory(data: any) : Observable<any>
   {
-    return this.http.post<any>(this.adminAddCategoryAPI, data);
+    return this.http.post<any>(this.adminCategoryAPI + '/add', data);
   }
   
   // Get all product
@@ -33,7 +32,7 @@ export class AdminService {
   // Add new product to database
   addProduct(data: any) : Observable<any>
   {
-    return this.http.post<any>(this.adminProductAPI, data);
+    return this.http.post<any>(this.adminProductAPI + '/add', data);
   }
 
   
