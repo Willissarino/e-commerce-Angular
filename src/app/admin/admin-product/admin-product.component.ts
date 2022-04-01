@@ -20,7 +20,7 @@ export class AdminProductComponent implements OnInit {
 
   getProductList() : void {
     this.service.getAllProduct()
-    .subscribe(response => this.product = response);
+      .subscribe(response => this.product = response);
   }
 
 
