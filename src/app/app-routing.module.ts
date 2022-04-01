@@ -18,6 +18,7 @@ import { AdminCategoryAddComponent } from './admin/admin-category-add/admin-cate
 import { AdminCategoryEditComponent } from './admin/admin-category-edit/admin-category-edit.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminProductAddComponent } from './admin/admin-product-add/admin-product-add.component';
+import { AdminProductEditComponent } from './admin/admin-product-edit/admin-product-edit.component';
 
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
       { path: 'category-edit', component: AdminCategoryEditComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'product-add', component: AdminProductAddComponent },
+      { path: 'product-edit', component: AdminProductEditComponent },
     ]
   },
 
