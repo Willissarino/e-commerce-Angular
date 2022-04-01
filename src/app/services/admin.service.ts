@@ -24,11 +24,16 @@ export class AdminService {
     return this.http.post<any>(this.adminAddCategoryAPI, data);
   }
   
-
   // Get all product
   getAllProduct() : Observable<any>
   {
     return this.http.get<any>(this.adminProductAPI);
+  }
+
+  // Add new product to database
+  addProduct(data: any) : Observable<any>
+  {
+    return this.http.post<any>(this.adminProductAPI, data);
   }
 
   
