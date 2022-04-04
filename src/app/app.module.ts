@@ -31,6 +31,7 @@ import { AdminCategoryEditComponent } from './admin/admin-category-edit/admin-ca
 import { AdminProductEditComponent } from './admin/admin-product-edit/admin-product-edit.component';
 import { AdminDashboardStatComponent } from './admin/admin-dashboard-stat/admin-dashboard-stat.component';
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
+import { UserCartComponent } from './user/user-cart/user-cart.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.com
     AdminProductEditComponent,
     AdminDashboardStatComponent,
     UserDashboardComponent,
+    UserCartComponent,
   ],
   imports: [
     BrowserModule,
