@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -34,6 +34,7 @@ export class AdminProductEditComponent implements OnInit {
   constructor(
     private service:AdminService,
     private route:ActivatedRoute,
+    private router:Router,
   ) {}
 
   ngOnInit(): void {
@@ -70,6 +71,7 @@ export class AdminProductEditComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id') ?? "");
     this.service.updateProduct(id, this.updateProduct.value)
       .subscribe((result)=> {console.log(result)});
+    this.router.navigate(['/admin/dashboard/product']);
   }
   
 }
