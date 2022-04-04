@@ -45,10 +45,9 @@ const routes: Routes = [
       { path: 'category', component: AdminCategoryComponent },
       { path: 'category-add', component: AdminCategoryAddComponent },
       { path: 'category-edit/:id', component: AdminCategoryEditComponent },
-      { path: 'category-update/:id', component: AdminCategoryEditComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'product-add', component: AdminProductAddComponent },
-      { path: 'product-edit', component: AdminProductEditComponent },
+      { path: 'product-edit/:id', component: AdminProductEditComponent },
     ]
   },
 

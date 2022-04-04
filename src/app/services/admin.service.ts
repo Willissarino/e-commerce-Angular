@@ -10,8 +10,14 @@ export class AdminService {
   private adminProductAPI = 'http://127.0.0.1:8000/api/admin/product';
 
   constructor(private http:HttpClient) { }
-
-  // Get all product category
+  /*
+  | -----------------------------------------------------
+  | 
+  | CATEOGRY SECTION
+  |
+  | -----------------------------------------------------
+  */
+  // Get all categories
   getAllCategory() : Observable<any>
   {
     return this.http.get<any>(this.adminCategoryAPI);
@@ -37,19 +43,33 @@ export class AdminService {
     return this.http.put(this.adminCategoryAPI + '/update/' + id, data);
   }
 
-
+ /*
+  | -----------------------------------------------------
+  | 
+  | PRODUCT SECTION
+  |
+  | -----------------------------------------------------
+  */
   // Get all product
   getAllProduct() : Observable<any>
   {
     return this.http.get<any>(this.adminProductAPI);
   }
-
   // Add new product to database
   addProduct(data: any) : Observable<any>
   {
     return this.http.post<any>(this.adminProductAPI + '/add', data);
   }
-
+  // Edit product
+  editProduct(id: number)
+  {
+    return this.http.get(this.adminProductAPI + '/edit/' + id);
+  }
+  // Update product
+  updateProduct(id: number, data: any)
+  {
+    return this.http.put(this.adminProductAPI + '/update/' + id, data);
+  }
   // Delete product from database
   deleteProduct(id: number)
   {
