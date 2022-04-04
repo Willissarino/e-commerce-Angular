@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 //Import RouterModule & Routes
 import { RouterModule, Routes } from '@angular/router';
 //Import your component/pages
+import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserHomepageComponent } from './user/user-homepage/user-homepage.component';
-import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
 
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: '', component:UserHomepageComponent},
   {path: 'register', component:UserRegisterComponent},
   {path: 'login', component:UserLoginComponent},
+  {path: 'dashboard', component:UserDashboardComponent},
 
   // Product
   {path: 'category', component:ProductCategoryComponent},
