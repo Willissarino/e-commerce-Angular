@@ -13,6 +13,7 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardStatComponent } from './admin/admin-dashboard-stat/admin-dashboard-stat.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminCategoryAddComponent } from './admin/admin-category-add/admin-category-add.component';
 import { AdminCategoryEditComponent } from './admin/admin-category-edit/admin-category-edit.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
     path: 'admin/dashboard', 
     component: AdminDashboardComponent,
     children: [
+      { path: 'stats', component: AdminDashboardStatComponent },
       { path: 'category', component: AdminCategoryComponent },
       { path: 'category-add', component: AdminCategoryAddComponent },
       { path: 'category-edit/:id', component: AdminCategoryEditComponent },
