@@ -28,6 +28,12 @@ export class AdminService {
   {
     return this.http.delete(this.adminCategoryAPI + '/delete/' + id);
   }
+
+  // Edit category
+  editCategory(id: number)
+  {
+    return this.http.get(this.adminCategoryAPI + '/edit/' + id);
+  }
   
   // Get all product
   getAllProduct() : Observable<any>

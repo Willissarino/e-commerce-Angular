@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProductEditComponent implements OnInit {
 
-  constructor() { }
+  product: any = [];
+
+  constructor(
+  ) {}
 
   ngOnInit(): void {
+    
   }
 
+  getProductDetails() : void {
+    
+  }
+  
 }

@@ -44,7 +44,7 @@ const routes: Routes = [
     children: [
       { path: 'category', component: AdminCategoryComponent },
       { path: 'category-add', component: AdminCategoryAddComponent },
-      { path: 'category-edit', component: AdminCategoryEditComponent },
+      { path: 'category-edit/:id', component: AdminCategoryEditComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'product-add', component: AdminProductAddComponent },
       { path: 'product-edit', component: AdminProductEditComponent },
