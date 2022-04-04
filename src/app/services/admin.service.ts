@@ -16,25 +16,28 @@ export class AdminService {
   {
     return this.http.get<any>(this.adminCategoryAPI);
   }
-  
   // Add new category to database
   addCategory(data: any) : Observable<any>
   {
     return this.http.post<any>(this.adminCategoryAPI + '/add', data);
   }
-
   // Delete category from database
   deleteCategory(id: number)
   {
     return this.http.delete(this.adminCategoryAPI + '/delete/' + id);
   }
-
   // Edit category
   editCategory(id: number)
   {
     return this.http.get(this.adminCategoryAPI + '/edit/' + id);
   }
-  
+  // Update category
+  updateCategory(id: number, data: any)
+  {
+    return this.http.put(this.adminCategoryAPI + '/update/' + id, data);
+  }
+
+
   // Get all product
   getAllProduct() : Observable<any>
   {

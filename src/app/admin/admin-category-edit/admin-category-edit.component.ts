@@ -37,6 +37,27 @@ export class AdminCategoryEditComponent implements OnInit {
   getProductDetails() : void {
     const id = parseInt(this.route.snapshot.paramMap.get('id') ?? "");
     this.service.editCategory(id)
-      .subscribe(response => this.product = response);
+      .subscribe(
+        (product: any) => {
+          this.updateCategory = new FormGroup({
+            name: new FormControl(product.name),
+            slug: new FormControl(product.slug),
+            description: new FormControl(product.description),
+            status: new FormControl(product.status),
+            popular: new FormControl(product.popular),
+            meta_title: new FormControl(product.meta_title),
+            meta_keywords: new FormControl(product.meta_keywords),
+            meta_description: new FormControl(product.meta_description),
+            image: new FormControl(product.image),
+          });
+        }
+      );
   }
+
+  saveData() {
+    const id = parseInt(this.route.snapshot.paramMap.get('id') ?? "");
+    this.service.updateCategory(id, this.updateCategory.value)
+      .subscribe((result)=> {console.log(result)});
+  }
+
 }
