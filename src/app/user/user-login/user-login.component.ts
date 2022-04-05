@@ -1,5 +1,9 @@
+import { AuthStateService } from './../../auth/auth-state/auth-state.service';
+import { TokenService } from './../../auth/token/token.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthUserService } from '../../auth/auth-user/auth-user.service';
 
 @Component({
   selector: 'app-user-login',
@@ -13,13 +17,37 @@ export class UserLoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor() { }
+  errors: any = null;
+
+  constructor(
+    public AuthUserService: AuthUserService,
+    private router: Router,
+    private token: TokenService,
+    private authState: AuthStateService,
+  ) {}
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log(this.userLogin.value);
+    this.AuthUserService.login(this.userLogin.value).subscribe(
+      (result) => {
+        this.responseHandler(result);
+      },
+      (error) => {
+        this.errors = error.error;
+      },
+      () => {
+        this.authState.setAuthState(true);
+        this.userLogin.reset();
+        this.router.navigate(['/']);
+      }
+    );
+  }
+
+
+  responseHandler(data: any) {
+    this.token.handleData(data.access_token);
   }
 
 }
