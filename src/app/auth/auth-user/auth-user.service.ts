@@ -1,3 +1,4 @@
+import { UserModel } from './../../model/user.model';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -18,9 +19,17 @@ export class AuthUserService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
+  private readonly TOKEN_NAME = 'access_token';
+  user!: UserModel;
+
+  /* get token(): any {
+    return localStorage.getItem(this.TOKEN_NAME);
+  } */
+
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('access_token');
     this._isLoggedIn$.next(!!token);
+    /* this.user = this.getUser(this.token); */
   }
 
   // User registration
@@ -32,10 +41,14 @@ export class AuthUserService {
   login(user: User): Observable<any> {
     return this.http.post(this.userAuthAPI + '/login', user).pipe(
       tap((res: any) => {
-        localStorage.setItem('access_token', res.data.access_token);
-        localStorage.setItem('username', res.data.user_details.name);
+        localStorage.setItem('access_token', res.access_token);
+        /* this.user = this.getUser(res.access_token); */
         this._isLoggedIn$.next(true);
       })
     );
   }
+
+  /* private getUser(token: string) : UserModel {
+    return JSON.parse(token) as UserModel;
+  } */
 }

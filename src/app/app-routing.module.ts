@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Import RouterModule & Routes
 import { RouterModule, Routes } from '@angular/router';
+import { HasRoleGuard } from './guard/has-role.guard';
 //Import your component/pages
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
@@ -31,7 +32,7 @@ const routes: Routes = [
   {path: '', component:UserHomepageComponent},
   {path: 'register', component:UserRegisterComponent},
   {path: 'login', component:UserLoginComponent},
-  {path: 'dashboard', component:UserDashboardComponent, canActivate: [IsAuthenticatedGuard]},
+  {path: 'dashboard', component:UserDashboardComponent, canActivate: [IsAuthenticatedGuard, HasRoleGuard], data: {roles: ['Admin']}},
   {path: 'cart', component:UserCartComponent, canActivate: [IsAuthenticatedGuard]},
 
   // Product
