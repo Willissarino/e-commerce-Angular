@@ -33,6 +33,7 @@ export class AuthUserService {
     return this.http.post(this.userAuthAPI + '/login', user).pipe(
       tap((res: any) => {
         localStorage.setItem('access_token', res.data.access_token);
+        localStorage.setItem('username', res.data.user_details.name);
         this._isLoggedIn$.next(true);
       })
     );
