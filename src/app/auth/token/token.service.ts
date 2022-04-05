@@ -25,9 +25,11 @@ export class TokenService {
           ? true
           : false;
       }
-    } else {
+    }
+    else {
       return false;
     }
+    return false;
   }
 
   payload(token: any) {
