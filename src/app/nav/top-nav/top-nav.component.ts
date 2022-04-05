@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthUserService } from 'src/app/auth/auth-user/auth-user.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authUserService: AuthUserService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
   }

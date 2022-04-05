@@ -59,13 +59,23 @@
                                 </svg>
                             </label>
                             <!-- @if (Auth::guest()) -->
+                            <div *ngIf="authUserService.isLoggedIn$ | async; else notLoggedIn">
+                                <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 w-52">
+                                    <!-- Profile -->
+                                    <li><a disabled>Logged in as </a></li>
+                                    <li><a routerLink="/dashboard">Dashboard</a></li> 
+                                    <!-- Logout if not logged in -->
+                                    <li><a>Logout</a></li> 
+                                </ul>
+                            </div>                            
+                            <!-- @else -->
+                            <ng-template #notLoggedIn>
                                 <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 w-52">
                                     <li><a disabled class="border-b-2">Please login to continue</a></li> 
                                     <li><a routerLink="/login">Login</a></li> 
                                     <li><a routerLink="/register">Register</a></li> 
                                 </ul>
-                            <!-- @else -->
-                                
+                            </ng-template> 
                             <!-- @endif -->
                         </div>
                     </span>
