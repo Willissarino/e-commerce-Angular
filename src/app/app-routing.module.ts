@@ -23,17 +23,16 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { AdminProductAddComponent } from './admin/admin-product-add/admin-product-add.component';
 import { AdminProductEditComponent } from './admin/admin-product-edit/admin-product-edit.component';
 
-
-
-
+// Check if authenticated
+import { IsAuthenticatedGuard } from './guard/is-authenticated.guard';
 
 const routes: Routes = [
   // User 
   {path: '', component:UserHomepageComponent},
   {path: 'register', component:UserRegisterComponent},
   {path: 'login', component:UserLoginComponent},
-  {path: 'dashboard', component:UserDashboardComponent},
-  {path: 'cart', component:UserCartComponent},
+  {path: 'dashboard', component:UserDashboardComponent, canActivate: [IsAuthenticatedGuard]},
+  {path: 'cart', component:UserCartComponent, canActivate: [IsAuthenticatedGuard]},
 
   // Product
   {path: 'category', component:ProductCategoryComponent},
