@@ -1,5 +1,3 @@
-import { AuthStateService } from './../../auth/auth-state/auth-state.service';
-import { TokenService } from './../../auth/token/token.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,8 +20,6 @@ export class UserLoginComponent implements OnInit {
   constructor(
     public AuthUserService: AuthUserService,
     private router: Router,
-    private token: TokenService,
-    private authState: AuthStateService,
   ) {}
 
   ngOnInit(): void {
@@ -32,22 +28,17 @@ export class UserLoginComponent implements OnInit {
   onSubmit() {
     this.AuthUserService.login(this.userLogin.value).subscribe(
       (result) => {
-        this.responseHandler(result);
+        console.log(result);
       },
       (error) => {
         this.errors = error.error;
       },
       () => {
-        this.authState.setAuthState(true);
         this.userLogin.reset();
-        this.router.navigate(['/homepage']);
+        this.router.navigateByUrl('/');
       }
     );
   }
 
-
-  responseHandler(data: any) {
-    this.token.handleData(data.access_token);
-  }
 
 }
