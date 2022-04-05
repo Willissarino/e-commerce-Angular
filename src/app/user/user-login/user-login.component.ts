@@ -40,7 +40,7 @@ export class UserLoginComponent implements OnInit {
       () => {
         this.authState.setAuthState(true);
         this.userLogin.reset();
-        this.router.navigate(['/']);
+        this.router.navigate(['/homepage']);
       }
     );
   }
