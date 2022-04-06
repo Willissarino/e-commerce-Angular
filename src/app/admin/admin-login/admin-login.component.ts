@@ -1,5 +1,7 @@
+import { AuthAdminService } from './../../auth/auth-admin/auth-admin.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -13,13 +15,29 @@ export class AdminLoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor() { }
+  errors: any = null;
+
+  constructor(
+    public AuthAdminService: AuthAdminService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log(this.adminLogin.value);
+    this.AuthAdminService.login(this.adminLogin.value).subscribe(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        this.errors = error.error;
+      },
+      () => {
+        this.adminLogin.reset();
+        this.router.navigateByUrl('/admin/dashboard/stats');
+      }
+    );
   }
   
 

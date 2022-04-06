@@ -16,6 +16,9 @@
 
         <!-- Validation Errors -->
         <!-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> -->
+        <div *ngIf="errors?.Error" class="mb-4 list-disc list-inside text-sm text-red-600">
+          {{ errors?.Error }}. Please try again.
+        </div>
 
         <form class="space-y-6" [formGroup]="adminLogin" (ngSubmit)="onSubmit()">
           <div>

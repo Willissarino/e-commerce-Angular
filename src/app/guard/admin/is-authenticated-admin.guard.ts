@@ -1,4 +1,4 @@
-import { AuthUserService } from 'src/app/auth/auth-user/auth-user.service';
+import { AuthAdminService } from './../../auth/auth-admin/auth-admin.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, tap } from 'rxjs';
@@ -7,25 +7,23 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class IsAuthenticatedGuard implements CanActivate {
+export class IsAuthenticatedAdminGuard implements CanActivate {
 
   constructor(
-    private authService: AuthUserService,
+    private authService: AuthAdminService,
     private router: Router,
   ) {}
-
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.authService.isLoggedIn$.pipe(
-      tap((isLoggedIn) => {
-        // If not logged in, redirect to user login page
-        if (!isLoggedIn) {
-          this.router.navigate(['/login']);
+    return this.authService.isAdminLoggedIn$.pipe(
+      tap((isAdminLoggedIn) => {
+        // If not logged in, redirect to admin login page
+        if (!isAdminLoggedIn) {
+          this.router.navigateByUrl('/admin');
         }
       })
     );
   }
-  
 }
