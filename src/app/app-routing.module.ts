@@ -32,8 +32,8 @@ const routes: Routes = [
   {path: '', component:UserHomepageComponent},
   {path: 'register', component:UserRegisterComponent},
   {path: 'login', component:UserLoginComponent},
-  {path: 'dashboard', component:UserDashboardComponent, canActivate: [IsAuthenticatedGuard, HasRoleGuard], data: {roles: ['Admin']}},
-  {path: 'cart', component:UserCartComponent, canActivate: [IsAuthenticatedGuard]},
+  {path: 'dashboard', component:UserDashboardComponent, canActivate: [IsAuthenticatedGuard, HasRoleGuard], data: { roles: 'User' }},
+  {path: 'cart', component:UserCartComponent, canActivate: [IsAuthenticatedGuard, HasRoleGuard], data: { roles: 'User' }},
 
   // Product
   {path: 'category', component:ProductCategoryComponent},
