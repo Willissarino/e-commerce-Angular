@@ -24,8 +24,9 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { AdminProductAddComponent } from './admin/admin-product-add/admin-product-add.component';
 import { AdminProductEditComponent } from './admin/admin-product-edit/admin-product-edit.component';
 
-// Check if authenticated
+// Check if authenticated (either "user" or "admin")
 import { IsAuthenticatedGuard } from './guard/is-authenticated.guard';
+import { IsAuthenticatedAdminGuard } from './guard/admin/is-authenticated-admin.guard';
 
 const routes: Routes = [
   // User 
@@ -43,17 +44,15 @@ const routes: Routes = [
 
   // Admin
   {path: 'admin', component:AdminLoginComponent},
-  {
-    path: 'admin/dashboard', 
-    component: AdminDashboardComponent,
+  {path: 'admin/dashboard', component: AdminDashboardComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin' },
     children: [
-      { path: 'stats', component: AdminDashboardStatComponent },
-      { path: 'category', component: AdminCategoryComponent },
-      { path: 'category-add', component: AdminCategoryAddComponent },
-      { path: 'category-edit/:id', component: AdminCategoryEditComponent },
-      { path: 'product', component: AdminProductComponent },
-      { path: 'product-add', component: AdminProductAddComponent },
-      { path: 'product-edit/:id', component: AdminProductEditComponent },
+      { path: 'stats', component: AdminDashboardStatComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin' }},
+      { path: 'category', component: AdminCategoryComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin' }},
+      { path: 'category-add', component: AdminCategoryAddComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin' }},
+      { path: 'category-edit/:id', component: AdminCategoryEditComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin' }},
+      { path: 'product', component: AdminProductComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin'}},
+      { path: 'product-add', component: AdminProductAddComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin' }},
+      { path: 'product-edit/:id', component: AdminProductEditComponent, canActivate: [IsAuthenticatedAdminGuard, HasRoleGuard], data: { roles: 'Admin' }},
     ]
   },
 
