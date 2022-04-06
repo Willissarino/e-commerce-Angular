@@ -17,4 +17,9 @@ export class TopNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout() {
+    this.authUserService.logout();
+    this.router.navigate(['/login']);
+  }
+
 }

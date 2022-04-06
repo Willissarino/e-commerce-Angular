@@ -14,7 +14,6 @@ export class User {
   providedIn: 'root',
 })
 export class AuthUserService {
-  // APIs
   private userAuthAPI = 'http://127.0.0.1:8000/api';
   // Check if user is logged in
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
@@ -42,6 +41,13 @@ export class AuthUserService {
         this._isLoggedIn$.next(true);
       })
     );
+  }
+
+  // User logout
+  logout() {
+    localStorage.removeItem('TOKEN');
+    localStorage.removeItem('ROLE');
+    this._isLoggedIn$.next(false);
   }
 
   // Return user roles

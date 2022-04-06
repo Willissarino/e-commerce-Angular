@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 // Admin Interface
 export class Admin {
@@ -13,11 +14,32 @@ export class Admin {
 })
 export class AuthAdminService {
   private adminAuthAPI = 'http://127.0.0.1:8000/api/admin';
+  // Check if admin is logged in
+  private _isAdminLoggedIn$ = new BehaviorSubject<boolean>(false);
+  isAdminLoggedIn$ = this._isAdminLoggedIn$.asObservable();
+  
+  roles!: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    const token = localStorage.getItem('TOKEN');
+    this._isAdminLoggedIn$.next(!!token);
+  }
 
   // Admin login
   login(admin: Admin): Observable<any> {
-    return this.http.post(this.adminAuthAPI + '/login', admin);
+    return this.http.post(this.adminAuthAPI + '/login', admin).pipe(
+      tap((res: any) => {
+        localStorage.setItem('TOKEN', res.access_token);
+        localStorage.setItem('ROLE', res.roles);
+        this._isAdminLoggedIn$.next(true);
+      })
+    );
   }
+
+  // Return admin roles
+  getRoles() {
+    this.roles = localStorage.getItem('ROLE') || '';
+    return this.roles;
+  }
+
 }
