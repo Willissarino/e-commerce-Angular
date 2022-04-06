@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './auth/token/token-interceptor.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TopNavComponent } from './nav/top-nav/top-nav.component';
@@ -66,6 +67,12 @@ import { UserCartComponent } from './user/user-cart/user-cart.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    }],
 })
 export class AppModule { }
