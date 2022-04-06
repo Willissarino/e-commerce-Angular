@@ -14,13 +14,16 @@ export class User {
   providedIn: 'root',
 })
 export class AuthUserService {
+  // APIs
   private userAuthAPI = 'http://127.0.0.1:8000/api';
+  // Check if user is logged in
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
+  roles!: string;
 
   constructor(private http: HttpClient) {
-    const token = localStorage.getItem('access_token');
+    const token = localStorage.getItem('TOKEN');
     this._isLoggedIn$.next(!!token);
   }
 
@@ -33,10 +36,18 @@ export class AuthUserService {
   login(user: User): Observable<any> {
     return this.http.post(this.userAuthAPI + '/login', user).pipe(
       tap((res: any) => {
-        localStorage.setItem('access_token', res.access_token);
+        localStorage.setItem('TOKEN', res.access_token);
+        // Get user roles
+        localStorage.setItem('ROLE', res.roles);
         this._isLoggedIn$.next(true);
       })
     );
+  }
+
+  // Return user roles
+  getRoles() {
+    this.roles = localStorage.getItem('ROLE') || '';
+    return this.roles;
   }
 
 }

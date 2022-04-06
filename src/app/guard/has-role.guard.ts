@@ -7,7 +7,10 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from
   providedIn: 'root',
 })
 export class HasRoleGuard implements CanActivate {
-  constructor(private authService: AuthUserService) { }
+  constructor(
+    private authService: AuthUserService,
+
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -21,9 +24,21 @@ export class HasRoleGuard implements CanActivate {
   }
 
   private isAuthourized(route: ActivatedRouteSnapshot): boolean {
-    const roles = ['User'];
-    const expectedRoles = route.data['roles'];
-    const roleMatches = roles.findIndex(role => expectedRoles.indexOf(role) !== -1);
-    return (roleMatches < 0) ? false : true;
+    /* const roleMatches = roles.findIndex(role => expectedRoles.indexOf(role) !== -1);
+    return (roleMatches < 0) ? false : true; */
+
+    if (this.authService.isLoggedIn$) {
+      const roles = this.authService.getRoles();
+      const expectedRoles = route.data['roles'];
+
+      if (expectedRoles && expectedRoles.indexOf(roles) === -1) {
+        return false;
+      }
+      return true;
+    }
+    return false;
   }
+
+
+
 }
