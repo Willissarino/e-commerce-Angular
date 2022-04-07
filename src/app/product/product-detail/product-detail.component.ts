@@ -42,12 +42,12 @@ export class ProductDetailComponent implements OnInit {
         this.product = response;
         this.productForm = new FormGroup({
           product_id: new FormControl(response.id),
-          product_qty: new FormControl(response.qty),
+          product_qty: new FormControl(1),
         });
       });
   }
 
-  // Create array from 0 to product qty
+  // Create array from 1 to product qty
   createRange() {
     return new Array(parseInt(this.product.qty));
   }
