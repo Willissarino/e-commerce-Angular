@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthUserService } from '../auth/auth-user/auth-user.service';
 import { AuthAdminService } from '../auth/auth-admin/auth-admin.service';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +11,7 @@ export class HasRoleGuard implements CanActivate {
   constructor(
     private authUserService: AuthUserService,
     private authAdminService: AuthAdminService,
+    private router: Router,
   ) {}
 
   canActivate(
@@ -33,13 +34,17 @@ export class HasRoleGuard implements CanActivate {
       const expectedRoles = route.data['roles'];
 
       if (expectedRoles && expectedRoles.indexOf(roles) === -1) {
+        // Check user roles and redirect them based on the roles
+        if (roles == 'user') {
+          this.router.navigate(['/login']);
+        } else {
+          this.router.navigate(['/admin']);
+        }
         return false;
       }
       return true;
     }
+    this.router.navigateByUrl('/login');
     return false;
   }
-
-
-
 }

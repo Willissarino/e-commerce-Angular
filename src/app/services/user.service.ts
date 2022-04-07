@@ -22,4 +22,10 @@ export class UserService {
     return this.http.post<any>(this.userAPI + '/update-user-detail', data);
   }
 
+  // Get cart
+  getCart() : Observable<any>
+  {
+    return this.http.get<any>(this.userAPI + '/cart');
+  }
+
 }
