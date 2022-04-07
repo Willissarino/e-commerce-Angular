@@ -58,9 +58,8 @@ export class UserDashboardComponent implements OnInit {
   }
 
   saveData() {
-    /* this.service.updateUser(this.updateUser.value)
-      .subscribe((result)=> {console.log(result)}); */
-      console.log(this.updateUser.value);
+    this.service.updateUser(this.updateUser.value)
+      .subscribe((result)=> {console.log(result)});
   }
 
 }

@@ -15,4 +15,11 @@ export class UserService {
   {
     return this.http.get<any>(this.userAPI + '/dashboard');
   }
+
+  // Update user details
+  updateUser(data: any) : Observable<any>
+  {
+    return this.http.post<any>(this.userAPI + '/update-user-detail', data);
+  }
+
 }
