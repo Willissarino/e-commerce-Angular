@@ -8,6 +8,7 @@ import { AuthUserService } from 'src/app/auth/auth-user/auth-user.service';
   styleUrls: ['./top-nav.component.css']
 })
 export class TopNavComponent implements OnInit {
+  username = localStorage.getItem('USERNAME');
 
   constructor(
     public authUserService: AuthUserService,

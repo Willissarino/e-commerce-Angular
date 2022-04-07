@@ -62,7 +62,7 @@
                             <div *ngIf="authUserService.isLoggedIn$ | async; else notLoggedIn">
                                 <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 w-52">
                                     <!-- Profile -->
-                                    <li><a disabled>Logged in as</a></li>
+                                    <li><a disabled>Logged in as {{username}}</a></li>
                                     <li><a routerLink="/dashboard">Dashboard</a></li> 
                                     <!-- Logout if not logged in -->
                                     <li><a (click)="logout()">Logout</a></li> 

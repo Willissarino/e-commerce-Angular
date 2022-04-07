@@ -8,6 +8,7 @@ import { AuthAdminService } from 'src/app/auth/auth-admin/auth-admin.service';
   styleUrls: ['./admin-dropdown.component.css']
 })
 export class AdminDropdownComponent implements OnInit {
+  username = localStorage.getItem('USERNAME');
 
   constructor(
     private router: Router,

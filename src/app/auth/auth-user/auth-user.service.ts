@@ -36,8 +36,10 @@ export class AuthUserService {
     return this.http.post(this.userAuthAPI + '/login', user).pipe(
       tap((res: any) => {
         localStorage.setItem('TOKEN', res.access_token);
-        // Get user roles
+        // Get User Roles
         localStorage.setItem('ROLE', res.roles);
+        // Get Username
+        localStorage.setItem('USERNAME', res.name);
         this._isLoggedIn$.next(true);
       })
     );
@@ -47,6 +49,7 @@ export class AuthUserService {
   logout() {
     localStorage.removeItem('TOKEN');
     localStorage.removeItem('ROLE');
+    localStorage.removeItem('USERNAME');
     this._isLoggedIn$.next(false);
   }
 

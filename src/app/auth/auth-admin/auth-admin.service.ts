@@ -31,6 +31,7 @@ export class AuthAdminService {
       tap((res: any) => {
         localStorage.setItem('TOKEN', res.access_token);
         localStorage.setItem('ROLE', res.roles);
+        localStorage.setItem('USERNAME', res.name);
         this._isAdminLoggedIn$.next(true);
       })
     );
@@ -40,6 +41,7 @@ export class AuthAdminService {
   logout() {
     localStorage.removeItem('TOKEN');
     localStorage.removeItem('ROLE');
+    localStorage.removeItem('USERNAME');
     this._isAdminLoggedIn$.next(false);
   }
 
