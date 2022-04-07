@@ -36,6 +36,13 @@ export class AuthAdminService {
     );
   }
 
+  // Admin logout
+  logout() {
+    localStorage.removeItem('TOKEN');
+    localStorage.removeItem('ROLE');
+    this._isAdminLoggedIn$.next(false);
+  }
+
   // Return admin roles
   getRoles() {
     this.roles = localStorage.getItem('ROLE') || '';

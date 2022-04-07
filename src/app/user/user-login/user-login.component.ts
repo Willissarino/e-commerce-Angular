@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserService } from '../../auth/auth-user/auth-user.service';
 
@@ -11,8 +11,8 @@ import { AuthUserService } from '../../auth/auth-user/auth-user.service';
 export class UserLoginComponent implements OnInit {
 
   userLogin = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('',Validators.required),
+    password: new FormControl('',Validators.required),
   });
 
   errors: any = null;

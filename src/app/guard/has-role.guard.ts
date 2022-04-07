@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthUserService } from '../auth/auth-user/auth-user.service';
+import { AuthAdminService } from '../auth/auth-admin/auth-admin.service';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
 
 @Injectable({
@@ -8,8 +9,8 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from
 })
 export class HasRoleGuard implements CanActivate {
   constructor(
-    private authService: AuthUserService,
-
+    private authUserService: AuthUserService,
+    private authAdminService: AuthAdminService,
   ) {}
 
   canActivate(
@@ -27,8 +28,8 @@ export class HasRoleGuard implements CanActivate {
     /* const roleMatches = roles.findIndex(role => expectedRoles.indexOf(role) !== -1);
     return (roleMatches < 0) ? false : true; */
 
-    if (this.authService.isLoggedIn$) {
-      const roles = this.authService.getRoles();
+    if (this.authUserService.isLoggedIn$ || this.authAdminService.isAdminLoggedIn$) {
+      const roles = this.authUserService.getRoles() || this.authAdminService.getRoles();
       const expectedRoles = route.data['roles'];
 
       if (expectedRoles && expectedRoles.indexOf(roles) === -1) {
