@@ -12,7 +12,8 @@
                   <li class="text-xl font-extrabold text-gray-900">{{productName}}</li>
                 </ul>
             </div>
-
+            <!-- Form -->
+            <form [formGroup]="productForm" (ngSubmit)="addToCart()">
             <!-- View Product -->
             <section class="text-gray-600 body-font overflow-hidden">
                 <div class="container px-5 py-24 mx-auto product_product">
@@ -71,7 +72,7 @@
                         </div>
 
                         <!-- Product_ID -->
-                        <input type="hidden" value="{{product.id}}" class="prod_id"/>
+                        <input type="hidden" formControlName="product_id" value="{{product.id}}"/>
 
                         <!-- Quantity -->
                         <!-- @if ($products->qty >= 5) -->
@@ -79,7 +80,7 @@
                           <div class="flex ml-6 items-center">
                             <span class="mr-3">Quantity</span>
                             <div class="relative">
-                              <select name="quantity" class="qty-input rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
+                              <select name="product_qty" formControlName="product_qty" class=" rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -99,7 +100,7 @@
                           <div class="flex ml-6 items-center">
                             <span class="mr-3">Quantity</span>
                             <div class="relative">
-                              <select name="quantity" class="qty-input rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
+                              <select name="product_qty" formControlName="product_qty" class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
                                   <!-- @for ($i = 1; $i < $products->qty ; $i++) -->
                                   <ng-container *ngFor="let prod of createRange(); let i = index">
                                     <option value="{{i+1}}">{{i+1}}</option>
@@ -144,6 +145,7 @@
                   </div>
                 </div>
               </section>
+            </form>
         </div>
     </div>
 </div>

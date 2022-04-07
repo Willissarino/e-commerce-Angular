@@ -28,4 +28,10 @@ export class UserService {
     return this.http.get<any>(this.userAPI + '/cart');
   }
 
+  // Add to cart
+  addToCart(data: any) : Observable<any>
+  {
+    return this.http.post<any>(this.userAPI + '/add-to-cart', data);
+  }
+
 }

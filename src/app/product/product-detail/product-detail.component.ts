@@ -1,6 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,7 +17,17 @@ export class ProductDetailComponent implements OnInit {
   // For single set of data
   product: any = [];
 
-  constructor(private service: ProductService, private route: ActivatedRoute) {}
+  // Product form
+  productForm = new FormGroup({
+    product_id: new FormControl(''),
+    product_qty: new FormControl(''),
+  });
+
+  constructor(
+    private service: ProductService,
+    private cartService: UserService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.getProductDetails();
@@ -26,11 +38,24 @@ export class ProductDetailComponent implements OnInit {
     const prod_slug = this.route.snapshot.paramMap.get('prod_slug') ?? '';
     this.service
       .viewProductDetails(cate_slug, prod_slug)
-      .subscribe((response) => (this.product = response));
+      .subscribe((response:any) => {
+        this.product = response;
+        this.productForm = new FormGroup({
+          product_id: new FormControl(response.id),
+          product_qty: new FormControl(response.qty),
+        });
+      });
   }
 
-
+  // Create array from 0 to product qty
   createRange() {
     return new Array(parseInt(this.product.qty));
+  }
+
+  // Add to cart
+  addToCart() {
+    this.cartService.addToCart(this.productForm.value).subscribe((result) => {
+      console.log(result);
+    });
   }
 }

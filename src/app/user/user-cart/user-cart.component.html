@@ -16,7 +16,7 @@
                 </div>
                 <!-- Product -->
                 <!-- @foreach ($cartItems as $item) -->
-                    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5 product_data">
+                    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" *ngFor="let cart of userCart">
                         <!-- Product Quantity Availabe -->
                         <input class="max_product_qty" type="hidden" value="">
                         <div class="flex w-2/5">
@@ -30,8 +30,8 @@
                             </div>
                         </div>
                         <input type="hidden" class="prod_id" value="">
-                        <!-- If product_ qty >= card_qty then not OUT OF STOCK -->
                         <!-- @if ( $item->products->qty >= $item->prod_qty) -->
+                        <ng-container *ngIf="cart >= 5; else noStock">
                             <!-- Quantity -->
                             <div class="flex justify-center w-1/5">
                                 <!-- Decrement-btn -->
@@ -44,8 +44,10 @@
                                     class="increment-btn changeQty text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
                                     type="button">+</button>                           
                             </div>
-                            <!-- @else -->
-                            <!-- Disabled Quantity -->
+                        </ng-container>
+                        <!-- @else -->
+                        <!-- Disabled Quantity -->
+                        <ng-template #noStock>
                             <div class="flex justify-center w-1/5">
                                 <!-- Decrement-btn -->
                                 <button
@@ -57,19 +59,15 @@
                                     class="hidden text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
                                     type="button">+</button>                        
                             </div>
+                        </ng-template>
                         <!-- @endif -->
                         <span class="text-center w-1/5 font-semibold text-sm"></span>
                         <span class="text-center w-1/5 font-semibold text-sm"></span>
                     </div>
-                        <!-- @php 
-                            $total_price += $item->products->selling_price * $item->prod_qty; 
-                            $total_qty += $item->prod_qty;  
-                        @endphp
-                @endforeach -->
                 <!-- Product End -->
 
                 <!-- Continue Shopping -->
-                <a href="" class="flex font-semibold text-indigo-600 text-sm mt-10">
+                <a routerLink="/product" class="flex font-semibold text-indigo-600 text-sm mt-10">
                     <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
                         <path
                             d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
@@ -103,14 +101,18 @@
                     </div>
                     <!-- CheckOut Button -->
                     <!-- @if (!$cartItems->first()) -->
+                    <ng-container *ngIf="userCart; else disabledCheckout">
                         <button disabled class="disabled:bg-slate-300 disabled:text-slate-500 disabled:border-slate-400 bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full rounded-md shadow-sm">
                             Checkout
                         </button>
+                    </ng-container>
                     <!-- @else -->
+                    <ng-template #disabledCheckout>
                         <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full rounded-md shadow-sm">
                             Checkout
                         </button>
-                <!-- @endif -->
+                    </ng-template>
+                    <!-- @endif -->
                 </div>
             </div>
         </div>
