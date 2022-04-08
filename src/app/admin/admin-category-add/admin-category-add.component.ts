@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-category-add',
@@ -34,6 +35,14 @@ export class AdminCategoryAddComponent implements OnInit {
   saveData() {
     this.service.addCategory(this.addCategory.value)
       .subscribe((result)=> {console.log(result)});
+      Swal.fire({
+        position: 'top-right',
+        icon: 'success',
+        title: 'Product added successfully',
+        toast: true,
+        showConfirmButton: false,
+        timer: 2500
+      })
     this.router.navigate(['/admin/dashboard/category']);
   }
 

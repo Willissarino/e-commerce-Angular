@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-product-add',
@@ -29,7 +31,10 @@ export class AdminProductAddComponent implements OnInit {
     image:              new FormControl(''),
   });
 
-  constructor(private service:AdminService) { }
+  constructor(
+    private service:AdminService,
+    private router:Router,
+  ) {}
 
   ngOnInit(): void {
     this.getProductCategoryList();
@@ -43,6 +48,15 @@ export class AdminProductAddComponent implements OnInit {
   saveData() {
     this.service.addProduct(this.addProduct.value)
       .subscribe((result)=> {console.log(result)});
+      Swal.fire({
+        position: 'top-right',
+        icon: 'success',
+        title: 'Product added successfully',
+        toast: true,
+        showConfirmButton: false,
+        timer: 2500
+      })
+      this.router.navigate(['/admin/dashboard/product']);
   }
 
 }

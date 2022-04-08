@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-category-edit',
@@ -60,6 +61,14 @@ export class AdminCategoryEditComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id') ?? "");
     this.service.updateCategory(id, this.updateCategory.value)
       .subscribe((result)=> {console.log(result)});
+      Swal.fire({
+        position: 'top-right',
+        icon: 'success',
+        title: 'Category updated successfully',
+        toast: true,
+        showConfirmButton: false,
+        timer: 2500
+      })
      this.router.navigate(['/admin/dashboard/category']);
 
   }

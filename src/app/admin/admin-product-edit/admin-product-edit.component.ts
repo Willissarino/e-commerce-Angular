@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-product-edit',
@@ -71,6 +72,14 @@ export class AdminProductEditComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id') ?? "");
     this.service.updateProduct(id, this.updateProduct.value)
       .subscribe((result)=> {console.log(result)});
+      Swal.fire({
+        position: 'top-right',
+        icon: 'success',
+        title: 'Product updated successfully',
+        toast: true,
+        showConfirmButton: false,
+        timer: 2500
+      })
     this.router.navigate(['/admin/dashboard/product']);
   }
   

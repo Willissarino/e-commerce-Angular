@@ -3,6 +3,7 @@ import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-detail',
@@ -57,5 +58,13 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.addToCart(this.productForm.value).subscribe((result) => {
       console.log(result);
     });
+    Swal.fire({
+      position: 'top-right',
+      icon: 'success',
+      title: 'Product added to cart successfully',
+      toast: true,
+      showConfirmButton: false,
+      timer: 2500
+    })
   }
 }
