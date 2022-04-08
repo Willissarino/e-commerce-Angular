@@ -17,8 +17,6 @@
                 <!-- Product -->
                 <!-- @foreach ($cartItems as $item) -->
                     <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" *ngFor="let cart of userCart.cartItems">
-                        <!-- Product Quantity Availabe -->
-                        <input class="max_product_qty" type="hidden" value="">
                         <div class="flex w-2/5">
                             <div class="w-30">
                                 <img class="h-24" src="assets/product/{{cart.products.image}}">
@@ -31,17 +29,17 @@
                         </div>
                         <input type="hidden" class="prod_id" value="{{cart.prod_id}}">
                         <!-- @if ( $item->products->qty >= $item->prod_qty) -->
-                        <ng-container *ngIf="cart.products.qty >= 5; else noStock">
+                        <ng-container *ngIf="cart.products.qty >= cart.prod_qty; else noStock">
                             <!-- Quantity -->
                             <div class="flex justify-center w-1/5">
                                 <!-- Decrement-btn -->
                                 <button
-                                    class="decrement-btn changeQty form-control text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                                    class="form-control text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
                                     type="button">-</button>
                                 <input name="quantity" class="qty-input w-full px-5 py-2.5 text-center mr-2 mb-2" value="{{cart.prod_qty}}">
                                 <!-- Increment-btn -->
                                 <button
-                                    class="increment-btn changeQty text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                                    class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
                                     type="button">+</button>                           
                             </div>
                         </ng-container>
