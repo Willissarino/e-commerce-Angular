@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
@@ -21,7 +22,10 @@ export class AdminCategoryAddComponent implements OnInit {
     image: new FormControl(''),
   });
 
-  constructor(private service:AdminService) { }
+  constructor(
+    private service:AdminService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
 
@@ -30,6 +34,7 @@ export class AdminCategoryAddComponent implements OnInit {
   saveData() {
     this.service.addCategory(this.addCategory.value)
       .subscribe((result)=> {console.log(result)});
+    this.router.navigate(['/admin/dashboard/category']);
   }
 
 }

@@ -2,6 +2,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-category-edit',
@@ -27,7 +28,8 @@ export class AdminCategoryEditComponent implements OnInit {
 
   constructor(
     private service:AdminService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +60,8 @@ export class AdminCategoryEditComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id') ?? "");
     this.service.updateCategory(id, this.updateCategory.value)
       .subscribe((result)=> {console.log(result)});
+     this.router.navigate(['/admin/dashboard/category']);
+
   }
 
 }
