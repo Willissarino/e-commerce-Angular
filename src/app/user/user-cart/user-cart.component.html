@@ -24,7 +24,7 @@
                             <div class="flex flex-col justify-between ml-4 flex-grow">
                                 <span class="font-bold text-sm">{{cart.products.name}}</span>
                                 <span class=" text-s">{{cart.products.small_description}}</span>
-                                <a class="font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer">Remove</a>
+                                <a class="font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer" (click)="deleteProductCart(cart.prod_id)">Remove</a>
                             </div>
                         </div>
                         <input type="hidden" class="prod_id" value="{{cart.prod_id}}">

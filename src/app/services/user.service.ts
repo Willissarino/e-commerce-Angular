@@ -34,4 +34,10 @@ export class UserService {
     return this.http.post<any>(this.userAPI + '/add-to-cart', data);
   }
 
+  // Delete a product from cart
+  deleteProductCart(productId: number)
+  {
+    return this.http.delete(this.userAPI + '/delete-cart/' + productId);
+  }
+
 }

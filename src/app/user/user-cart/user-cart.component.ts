@@ -27,4 +27,14 @@ export class UserCartComponent implements OnInit {
         }
       );
   }
+
+  // Delete product cart
+  deleteProductCart(productId: number) : void {
+    this.service.deleteProductCart(productId)
+      .subscribe(
+        (response: any) => {
+          this.getUserCart();
+        }
+      );
+  }
 }
